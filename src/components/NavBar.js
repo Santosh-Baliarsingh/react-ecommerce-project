@@ -37,7 +37,7 @@ export default function NavBar() {
             <div className="mx-auto"></div>
             <div className="mx-auto"></div>
             <div className="mx-auto"></div>
-            <ul className="navbar-nav me-auto my-1 mb-lg-0">
+            <ul className="navbar-nav me-auto text-sm-center my-1 mb-lg-0">
               <li className="nav-item">
                 <NavLink
                   className="nav-link fw-bold text-dark  mx-3"
@@ -73,9 +73,9 @@ export default function NavBar() {
                 </NavLink>
               </li>
               <NavLink className="nav-link cart text-dark mx-3" to="/cart">
-                <div className=" position-relative p-1">
-                  <FiShoppingCart className="h4" />
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded bg-primary">
+                <div className=" position-relative p-md-1 p-sm-0">
+                  <FiShoppingCart className="h4 " />
+                  <span className="position-absolute top-0 start-md-100 translate-middle badge rounded bg-primary">
                     10
                   </span>
                 </div>
