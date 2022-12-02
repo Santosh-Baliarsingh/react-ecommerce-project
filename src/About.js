@@ -1,9 +1,15 @@
 import React from "react";
+import HeroSection from "./components/HeroSection";
 
 export default function About() {
+
+  const data = {
+
+    name : "Capital Ecommerce",
+  };
   return (
     <>
-      <h2>About Us</h2>
+      <HeroSection myData={data}/>
     </>
   );
 }
