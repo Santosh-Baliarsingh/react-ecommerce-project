@@ -6,7 +6,7 @@ import { FiShoppingCart } from "react-icons/fi";
 export default function NavBar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-light sticky-top">
         <div className="container-fluid">
           <div>
             <NavLink className="navbar-brand" to="/">
