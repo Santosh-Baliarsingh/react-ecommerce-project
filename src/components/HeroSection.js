@@ -21,12 +21,11 @@ export default function HeroSection({ myData }) {
               </button>
             </NavLink>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 px-4">
             <img
-              className="img-fluid shadow mx-lg-5"
+              className="img-fluid shadow rounded"
               src="/assets/Shopping_Photo.jpg"
               alt="Shopping img"
-              width="400px"
             />
           </div>
         </div>
