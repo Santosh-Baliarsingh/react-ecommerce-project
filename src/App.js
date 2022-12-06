@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./About";
 import Cart from "./Cart";
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Contact from "./Contact";
 import ErrorPage from "./ErrorPage";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
+        <Footer/>
       </Router>
     </>
   );
