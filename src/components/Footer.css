@@ -1,0 +1,19 @@
+.main-footer{
+    background:#251749;
+    margin-top: 100px;
+}
+.footer-upper-section {
+  padding: 0px 80px !important;
+}
+
+.footer-upper-bg {
+    background: #FEFCF3;
+}
+
+.hr-line{
+    border: 1px solid #FEFCF3;
+}
+
+.pointer{
+    cursor : pointer;
+}
