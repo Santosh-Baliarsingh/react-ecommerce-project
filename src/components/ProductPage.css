@@ -1,0 +1,21 @@
+.category-icon{
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    color: #EFF5F5;
+    background: #181D31;
+    border: 2px solid none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    z-index: 1;
+}
+
+.myContainer{
+    overflow: hidden;
+}
+.myContainer img {
+    transition: 0.5s all ease-in-out;
+}
+.product_img:hover{
+    transform: scale(1.03);
+}
