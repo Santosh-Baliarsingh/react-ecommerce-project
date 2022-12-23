@@ -8,6 +8,8 @@ import FormatPrice from "./helpers/FormatPrice";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
+import StarRating from "./components/StarRating";
+import AddToCart from "./components/AddToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 export default function SingleProduct() {
@@ -20,7 +22,7 @@ export default function SingleProduct() {
 
   // destructure
   const {
-    id: alias,
+    // id: alias,
     name,
     image,
     company,
@@ -34,7 +36,7 @@ export default function SingleProduct() {
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
-  }, []);
+  }, [id]);
 
   if (isSingleLoading) {
     return (
@@ -56,17 +58,16 @@ export default function SingleProduct() {
           {/* Single Product Data */}
           <div className="col-md-6">
             <h2>{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews}</p>
-            <p>
+            <StarRating stars={stars} reviews={reviews} />
+            <p className="mt-3">
               MRP :
               <del>
                 <FormatPrice price={price + 50000} />
               </del>
-              <p>
-                Deal of the Day :
-                <FormatPrice price={price} />
-              </p>
+            </p>
+            <p>
+              Deal of the Day :
+              <FormatPrice price={price} />
             </p>
             <p>{description}</p>
             <div className="d-flex justify-content-around align-items-center text-center">
@@ -90,11 +91,22 @@ export default function SingleProduct() {
             <div>
               <p>
                 Available :
-                <span className="fw-bold"> {stock > 0 ? "In Stock" : "Not Avaiable"}</span>
+                <span className="fw-bold">
+                  {" "}
+                  {stock > 0 ? "In Stock" : "Not Avaiable"}
+                </span>
               </p>
-              <p>Category : {category}</p>
-              <p>Brand - {company}</p>
+              <p>
+                Category :{" "}
+                <span className="fw-bold text-capitalize">{category}</span>
+              </p>
+              <p>
+                Brand -{" "}
+                <span className="fw-bold text-capitalize">{company}</span>
+              </p>
             </div>
+            <div className="border border-1 border-dark"></div>
+            {stock > 0 && <AddToCart product = {singleProduct}/>}
           </div>
         </div>
       </div>
