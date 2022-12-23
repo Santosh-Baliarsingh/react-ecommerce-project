@@ -8,7 +8,7 @@ export default function MyImage({ images = [{ url: "" }] }) {
         <div className="row">
           <div className="col-md-4">
             {images.map((currentElement, id) => (
-              <div className="row">
+              <div key={id} className="row">
                 <img
                   className="img-fluid my-2 px-0  rounded-2"
                   key={id}
