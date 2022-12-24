@@ -10,11 +10,11 @@ export default function CartItemToggle({ amount, setIncrement, setDecrement }) {
         </div>
         <div className="d-inline-flex">
           <button className="btn border-0" onClick={() => setDecrement()}>
-            <BsPatchMinusFill className="h3 text-success" />
+            <BsPatchMinusFill className="h3 text-danger" />
           </button>
           <div className="h3 mx-3">{amount}</div>
           <button className="btn border-0" onClick={() => setIncrement()}>
-            <BsPatchPlusFill className="h3 text-danger" />
+            <BsPatchPlusFill className="h3 text-success" />
           </button>
         </div>
       </div>
