@@ -5,7 +5,7 @@ export default function HeroSection({ myData }) {
   const { name } = myData;
   return (
     <>
-      <div className="container mt-5">
+      <div className="container mt-3">
         <div className="row my-2">
           <div className="col-md-6">
             <p className="my-2 mx-4 fw-bold text-uppercase">Welcome To</p>
