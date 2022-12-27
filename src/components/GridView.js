@@ -6,7 +6,7 @@ export default function GridView({ products }) {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row m-4">
           {products.map((currentElement) => (
             <ProductPage key={currentElement.id} {...currentElement} />
           ))}
