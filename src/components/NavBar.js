@@ -1,12 +1,12 @@
 import React from "react";
-import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
+import "./NavBar.css";
 
 export default function NavBar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light sticky-top">
+      <nav className="navbar navbar-expand-lg bg-light fixed-top ">
         <div className="container-fluid">
           <div>
             <NavLink className="navbar-brand" to="/">
