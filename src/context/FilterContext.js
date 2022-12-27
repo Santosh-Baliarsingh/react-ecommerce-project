@@ -22,12 +22,17 @@ export const FilterContextProvider = ({ children }) => {
     return dispatch({ type: "SET_GRIDVIEW" });
   };
 
+  //   Set List View
+  const setListView = () => {
+    return dispatch({ type: "SET_LISTVIEW" });
+  };
+
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
   }, [products]);
 
   return (
-    <FilterContext.Provider value={{ ...state , setGridView }}>
+    <FilterContext.Provider value={{ ...state , setGridView , setListView }}>
       {children}
     </FilterContext.Provider>
   );
