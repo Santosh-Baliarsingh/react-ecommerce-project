@@ -2,7 +2,6 @@ import React from "react";
 import ProductPage from "./ProductPage";
 
 export default function GridView({ products }) {
-  console.log(products);
   return (
     <>
       <div className="container">
