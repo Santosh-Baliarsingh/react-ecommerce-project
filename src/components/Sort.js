@@ -4,11 +4,12 @@ import { FaList } from "react-icons/fa";
 import { useFilterContext } from "../context/FilterContext";
 
 export default function Sort() {
-  const { filter_products, grid_view, setGridView, setListView } =
+  const { filter_products, grid_view, setGridView, setListView, sorting } =
     useFilterContext();
   return (
     <>
       <div className="container mb-3 d-flex justify-content-between align-item-center mx-2">
+        {/* Grid and List Buttons */}
         <div>
           <button
             onClick={setGridView}
@@ -31,12 +32,26 @@ export default function Sort() {
             <FaList />
           </button>
         </div>
+        {/* Products */}
         <div>
           <p className="fw-bold">
             {`${filter_products.length}`} Products available
           </p>
         </div>
-        <div>Drop Down</div>
+        {/* DropDown */}
+        <div>
+          <select
+            onClick={sorting}
+            className="form-select fw-bold"
+            id="Sort"
+            aria-label="Default select example"
+          >
+            <option value="lowest" select = "true">Price ( lowest )</option>
+            <option value="highest">Price ( highest )</option>
+            <option value="a-z">Name (a - z)</option>
+            <option value="z-a">Name (z - a)</option>
+          </select>
+        </div>
       </div>
     </>
   );
