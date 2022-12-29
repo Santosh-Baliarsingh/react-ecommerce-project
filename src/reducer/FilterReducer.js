@@ -27,7 +27,7 @@ const filterReducer = (state, action) => {
     case "SORTING_PRODUCTS":
       let newSortData;
 
-      const { filter_products , sorting_value } = state;
+      const { filter_products, sorting_value } = state;
       let tempSortProduct = [...filter_products];
 
       const sortingProducts = (a, b) => {
@@ -38,10 +38,10 @@ const filterReducer = (state, action) => {
           return b.price - a.price;
         }
         if (sorting_value === "a-z") {
-          return a.name.localeCompare(b.name)
+          return a.name.localeCompare(b.name);
         }
         if (sorting_value === "z-a") {
-         return b.name.localeCompare(a.name);
+          return b.name.localeCompare(a.name);
         }
       };
 
@@ -49,6 +49,44 @@ const filterReducer = (state, action) => {
       return {
         ...state,
         filter_products: newSortData,
+      };
+
+    case "UPDATE_FILTER_VALUE":
+      const { name, value } = action.payload;
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [name]: value,
+        },
+      };
+
+    case "FILTER_PRODUCTS":
+      let { all_products } = state;
+      let tempFilterProduct = [...all_products];
+
+      const { text, category , company } = state.filters;
+
+      if (text) {
+        tempFilterProduct = tempFilterProduct.filter((currentElement) => {
+          return currentElement.name.toLowerCase().includes(text);
+        });
+      }
+
+      if (category !== "all") {
+        tempFilterProduct = tempFilterProduct.filter((currentElement) => {
+          return currentElement.category === category;
+        });
+      }
+
+      if (company !== "all") {
+        tempFilterProduct = tempFilterProduct.filter((currentElement) => {
+          return currentElement.company === company;
+        });
+      }
+      return {
+        ...state,
+        filter_products: tempFilterProduct,
       };
     default:
       return state;
