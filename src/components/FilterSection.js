@@ -1,12 +1,14 @@
 import React from "react";
 import { useFilterContext } from "../context/FilterContext";
 import { GiCheckMark } from "react-icons/gi";
+import FormatPrice from "../helpers/FormatPrice";
 
 export default function FilterSection() {
   const {
-    filters: { text, colors },
+    filters: { text, colors, price, maxPrice, minPrice },
     all_products,
     updateFilter,
+    clearFilters
   } = useFilterContext();
 
   // Get Unique Data of Each field
@@ -118,6 +120,30 @@ export default function FilterSection() {
             </button>
           );
         })}
+      </div>
+      {/* Price Range Section */}
+      <div className="mt-3">
+        <h4>Price</h4>
+
+        <label htmlFor="customRange1" className="form-label">
+          <FormatPrice price={price} />
+        </label>
+        <input
+          type="range"
+          min={minPrice}
+          max={maxPrice}
+          name="price"
+          value={price}
+          onChange={updateFilter}
+          className="form-range"
+          id="customRange1"
+        />
+      </div>
+      {/* Clear Filter Button */}
+      <div className="mt-3">
+        <button onClick={clearFilters} className="btn btn-outline-danger">
+          Clear Filter
+        </button>
       </div>
     </>
   );
