@@ -47,10 +47,10 @@ export default function Sort() {
               id="Sort"
               aria-label="Default select example"
             >
-              <option value="lowest" select="true">
-                Price ( lowest )
+              <option value="highest" select="true">
+                Price ( highest )
               </option>
-              <option value="highest">Price ( highest )</option>
+              <option value="lowest">Price ( lowest )</option>
               <option value="a-z">Name (a - z)</option>
               <option value="z-a">Name (z - a)</option>
             </select>
