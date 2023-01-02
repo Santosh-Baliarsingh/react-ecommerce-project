@@ -7,12 +7,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import { AppProvider } from "./context/ProductContext";
 import { FilterContextProvider } from "./context/FilterContext";
+import { CartProvider } from "./context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AppProvider>
     <FilterContextProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </FilterContextProvider>
   </AppProvider>
 );
