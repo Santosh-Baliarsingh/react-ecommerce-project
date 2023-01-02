@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { GiCheckMark } from "react-icons/gi";
 import CartItemToggle from "./CartItemToggle";
 import { NavLink } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 
 export default function AddToCart({ product }) {
-  const { colors, stock } = product;
+  const { addToCart } = useCartContext();
+
+  const { id, colors, stock } = product;
   const [color, setColor] = useState(colors[0]);
 
   const [amount, setAmount] = useState(1);
@@ -48,8 +51,13 @@ export default function AddToCart({ product }) {
           setDecrement={setDecrement}
         />
       </div>
-      <NavLink to="/cart">
-        <button className="btn btn-outline-warning fw-bold p-2 mx-auto">Add to Cart</button>
+      <NavLink to="/cart"  onClick={() => addToCart(id, color, amount, product)}>
+        <button
+          
+          className="btn btn-outline-warning fw-bold p-2 mx-auto"
+        >
+          Add to Cart
+        </button>
       </NavLink>
     </>
   );
