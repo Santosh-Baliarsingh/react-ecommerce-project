@@ -21,6 +21,7 @@ export default function Cart() {
             <CartItems key={currentElement.id} {...currentElement} />
           ))}
         </div>
+        <hr/>
       </div>
     </>
   );
