@@ -92,16 +92,15 @@ export default function SingleProduct() {
               <p>
                 Available :
                 <span className="fw-bold">
-                  {" "}
                   {stock > 0 ? "In Stock" : "Not Avaiable"}
                 </span>
               </p>
               <p>
-                Category :{" "}
+                Category :
                 <span className="fw-bold text-capitalize">{category}</span>
               </p>
               <p>
-                Brand -{" "}
+                Brand :
                 <span className="fw-bold text-capitalize">{company}</span>
               </p>
             </div>
