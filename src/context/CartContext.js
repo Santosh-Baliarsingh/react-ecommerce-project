@@ -36,8 +36,13 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("Items", JSON.stringify(state.cart));
   }, [state.cart]);
+
+  // To Clear Cart
+  const clearCart = () => {
+    dispatch({type : "CLEAR_CART"})
+  }
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem , clearCart }}>
       {children}
     </CartContext.Provider>
   );

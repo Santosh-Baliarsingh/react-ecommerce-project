@@ -1,10 +1,20 @@
 import React from "react";
 import { useCartContext } from "./context/CartContext";
 import CartItems from "./components/CartItems";
+import { NavLink } from "react-router-dom";
 
 export default function Cart() {
-  const { cart } = useCartContext();
-  console.log(cart);
+  const { cart, clearCart } = useCartContext();
+  // console.log(cart);
+
+  if (cart.length === 0) {
+    return (
+      <div className="text-center my-5">
+        <h4 className="fw-bold">No Items Added </h4>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="container">
@@ -15,13 +25,21 @@ export default function Cart() {
           <div className="col-3">Total</div>
           <div className="col-2">Remove</div>
         </div>
-        <hr/>
+        <hr />
         <div className="row text-center">
           {cart.map((currentElement) => (
             <CartItems key={currentElement.id} {...currentElement} />
           ))}
         </div>
-        <hr/>
+        <hr />
+        <div className="d-flex justify-content-between">
+          <NavLink to="/products">
+            <button className="btn btn-success">Continue Shopping</button>
+          </NavLink>
+          <button className="btn btn-danger" onClick={clearCart}>
+            Clear Cart
+          </button>
+        </div>
       </div>
     </>
   );

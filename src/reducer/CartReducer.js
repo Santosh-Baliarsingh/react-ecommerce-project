@@ -1,4 +1,5 @@
 export const CartReducer = (state, action) => {
+  // Add Items in Cart
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
     // console.log(product);
@@ -18,6 +19,7 @@ export const CartReducer = (state, action) => {
     };
   }
 
+  // To remove specific item in cart
   if (action.type === "REMOVE_ITEM") {
     let updatedCart = state.cart.filter(
       (currentElement) => currentElement.id !== action.payload
@@ -26,6 +28,14 @@ export const CartReducer = (state, action) => {
       ...state,
       cart: updatedCart,
     };
+  }
+
+  // To remove all cart items
+  if(action.type === "CLEAR_CART"){
+    return{
+      ...state,
+      cart : [],
+    }
   }
 
   return state;
