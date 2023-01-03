@@ -5,14 +5,14 @@ import { ImBin } from "react-icons/im";
 import { useCartContext } from "../context/CartContext";
 
 export default function CartItems({ id, name, image, color, price, amount }) {
-  const { removeItem } = useCartContext();
-  const setIncrement = () => {
-    // amount < stock ? setAmount(amount + 1) : setAmount(stock);
-  };
+  const { removeItem , setDecrement , setIncrement } = useCartContext();
+  // const setIncrement = () => {
+  //   // amount < stock ? setAmount(amount + 1) : setAmount(stock);
+  // };
 
-  const setDecrement = () => {
-    // amount > 1 ? setAmount(amount - 1) : setAmount(1);
-  };
+  // const setDecrement = () => {
+  //   // amount > 1 ? setAmount(amount - 1) : setAmount(1);
+  // };
   return (
     <>
       <div className="col-3 my-2">
@@ -43,11 +43,11 @@ export default function CartItems({ id, name, image, color, price, amount }) {
       {/* Quantity */}
       <div className="col-2">
         <div className="d-inline-flex">
-          <button className="btn border-0" onClick={() => setDecrement()}>
+          <button className="btn border-0" onClick={() => setDecrement(id)}>
             <BsPatchMinusFill className="h3 text-danger" />
           </button>
           <div className="h3 mx-3">{amount}</div>
-          <button className="btn border-0" onClick={() => setIncrement()}>
+          <button className="btn border-0" onClick={() => setIncrement(id)}>
             <BsPatchPlusFill className="h3 text-success" />
           </button>
         </div>

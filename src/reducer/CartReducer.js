@@ -12,7 +12,7 @@ export const CartReducer = (state, action) => {
       let updatedProduct = state.cart.map((currentElement) => {
         if (currentElement.id === id + color) {
           let newAmount = currentElement.amount + amount;
-          if(newAmount >= currentElement.max){
+          if (newAmount >= currentElement.max) {
             newAmount = currentElement.max;
           }
           return {
@@ -60,6 +60,61 @@ export const CartReducer = (state, action) => {
     return {
       ...state,
       cart: [],
+    };
+  }
+
+  // To Increase and Decrease Quantity
+  if (action.type === "SET_DECREMENT") {
+    let updatedProduct = state.cart.map((currentElement) => {
+      if (currentElement.id === action.payload) {
+        let decrementAmount = currentElement.amount - 1;
+        if (decrementAmount <= 1) {
+          decrementAmount = 1;
+        }
+        return {
+          ...currentElement,
+          amount: decrementAmount,
+        };
+      } else {
+        return currentElement;
+      }
+    });
+    return {
+      ...state,
+      cart: updatedProduct,
+    };
+  }
+  if (action.type === "SET_INCREMENT") {
+    let updatedProduct = state.cart.map((currentElement) => {
+      if (currentElement.id === action.payload) {
+        let incrementAmount = currentElement.amount + 1;
+        if (incrementAmount >= currentElement.max) {
+          incrementAmount = currentElement.max;
+        }
+        return {
+          ...currentElement,
+          amount: incrementAmount,
+        };
+      } else {
+        return currentElement;
+      }
+    });
+    return {
+      ...state,
+      cart: updatedProduct,
+    };
+  }
+
+  // Update Item Quantity in Cart
+  if (action.type === "CART_TOTAL_ITEM") {
+    let updateItemValue = state.cart.reduce((initialValue, currentElement) => {
+      let { amount } = currentElement;
+      initialValue = initialValue + amount;
+      return initialValue;
+    }, 0);
+    return {
+      ...state,
+      total_item: updateItemValue,
     };
   }
 

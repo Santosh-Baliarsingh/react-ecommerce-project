@@ -2,8 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import "./NavBar.css";
+import { useCartContext } from "../context/CartContext";
 
 export default function NavBar() {
+
+  const {total_item} = useCartContext();
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light fixed-top ">
@@ -76,7 +79,7 @@ export default function NavBar() {
                 <div className=" position-relative p-md-1 p-sm-0">
                   <FiShoppingCart className="h4 " />
                   <span className="position-absolute top-0 start-md-100 translate-middle badge rounded bg-primary">
-                    10
+                    {total_item}
                   </span>
                 </div>
               </NavLink>
