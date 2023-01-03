@@ -36,7 +36,7 @@ export default function CartItems({ id, name, image, color, price, amount }) {
       </div>
       {/* Price */}
       <div className="col-2">
-        <p className="pt-2">
+        <p className="pt-2 fw-bold">
           <FormatPrice price={price} />
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function CartItems({ id, name, image, color, price, amount }) {
         </div>
       </div>
       <div className="col-3">
-        <p>
+        <p className="fw-bold">
           <FormatPrice price={price * amount} />
         </p>
       </div>

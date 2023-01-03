@@ -4,19 +4,44 @@ export const CartReducer = (state, action) => {
     let { id, color, amount, product } = action.payload;
     // console.log(product);
 
-    let cartProduct = {
-      id: id + color,
-      name: product.name,
-      color,
-      amount,
-      image: product.image[0].url,
-      price: product.price,
-      max: product.stock,
-    };
-    return {
-      ...state,
-      cart: [...state.cart, cartProduct],
-    };
+    // Handling Existing Products
+    let existingProduct = state.cart.find(
+      (currentItem) => currentItem.id === id + color
+    );
+    if (existingProduct) {
+      let updatedProduct = state.cart.map((currentElement) => {
+        if (currentElement.id === id + color) {
+          let newAmount = currentElement.amount + amount;
+          if(newAmount >= currentElement.max){
+            newAmount = currentElement.max;
+          }
+          return {
+            ...currentElement,
+            amount: newAmount,
+          };
+        } else {
+          return currentElement;
+        }
+      });
+      return {
+        ...state,
+        cart: updatedProduct,
+      };
+    } else {
+      let cartProduct = {
+        id: id + color,
+        name: product.name,
+        color,
+        amount,
+        image: product.image[0].url,
+        price: product.price,
+        max: product.stock,
+      };
+      return {
+        ...state,
+        cart: [...state.cart, cartProduct],
+      };
+    }
   }
 
   // To remove specific item in cart
@@ -31,11 +56,11 @@ export const CartReducer = (state, action) => {
   }
 
   // To remove all cart items
-  if(action.type === "CLEAR_CART"){
-    return{
+  if (action.type === "CLEAR_CART") {
+    return {
       ...state,
-      cart : [],
-    }
+      cart: [],
+    };
   }
 
   return state;
