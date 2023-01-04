@@ -2,9 +2,10 @@ import React from "react";
 import { useCartContext } from "./context/CartContext";
 import CartItems from "./components/CartItems";
 import { NavLink } from "react-router-dom";
+import FormatPrice from "./helpers/FormatPrice";
 
 export default function Cart() {
-  const { cart, clearCart } = useCartContext();
+  const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   // console.log(cart);
 
   if (cart.length === 0) {
@@ -39,6 +40,38 @@ export default function Cart() {
           <button className="btn btn-danger" onClick={clearCart}>
             Clear Cart
           </button>
+        </div>
+      </div>
+      <div className="container d-flex justify-content-end">
+        <div
+          style={{ backgroundColor: "#251B37" }}
+          className="w-25 mt-4  border border-1 border-dark rounded-3 pt-3"
+        >
+          <div className="row ms-2 text-light">
+            <div className="col-6">
+              <p>Sub-Total :</p>
+              <p>Shipping Fees :</p>
+            </div>
+            <div className="col-6">
+              <p>
+                <FormatPrice price={total_price} />
+              </p>
+              <p>
+                <FormatPrice price={shipping_fee} />
+              </p>
+            </div>
+          </div>
+          <hr className="text-light mx-3" />
+          <div className="row ms-2 text-light">
+            <div className="col-6">
+              <p>Order Total :</p>
+            </div>
+            <div className="col-6">
+              <p>
+                <FormatPrice price={total_price + shipping_fee} />
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>

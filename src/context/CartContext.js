@@ -36,6 +36,8 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     // dispatch to update total quantity in cart item 
     dispatch({type : "CART_TOTAL_ITEM"})
+    // Dispatch Subtotal Amount in Cart
+    dispatch({type: "CART_TOTAL_PRICE"})
     localStorage.setItem("Items", JSON.stringify(state.cart));
   }, [state.cart]);
 
