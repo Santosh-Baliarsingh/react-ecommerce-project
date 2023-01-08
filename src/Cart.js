@@ -19,20 +19,28 @@ export default function Cart() {
   return (
     <>
       <div className="container">
-        <div className="row text-center text-uppercase fw-bold">
-          <div className="col-3">Items</div>
-          <div className="col-2">Price</div>
-          <div className="col-2">Quantity</div>
-          <div className="col-3">Total</div>
-          <div className="col-2">Remove</div>
+        {/* Product Table */}
+        <div className="table-responsive">
+          <table className="table my-3 rounded  align-middle">
+            <thead className="text-center">
+              <tr>
+                <th></th>
+                <th>Items</th>
+                <th></th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody className="text-center">
+              {cart.map((currentElement) => (
+                <CartItems key={currentElement.id} {...currentElement} />
+              ))}
+            </tbody>
+          </table>
         </div>
-        <hr />
-        <div className="row text-center">
-          {cart.map((currentElement) => (
-            <CartItems key={currentElement.id} {...currentElement} />
-          ))}
-        </div>
-        <hr />
+        {/* Continue Shopping and Remove Cart Buttons */}
         <div className="d-flex justify-content-between">
           <NavLink to="/products">
             <button className="btn btn-success">Continue Shopping</button>
@@ -42,17 +50,19 @@ export default function Cart() {
           </button>
         </div>
       </div>
-      <div className="container d-flex justify-content-end">
+
+      {/* Total Price of Product in Cart */}
+      <div className="container d-flex justify-content-end ">
         <div
           style={{ backgroundColor: "#251B37" }}
-          className="w-25 mt-4  border border-1 border-dark rounded-3 pt-3"
+          className="mt-4  border border-1 border-dark rounded-3 pt-3"
         >
-          <div className="row ms-2 text-light">
-            <div className="col-6">
-              <p>Sub-Total :</p>
-              <p>Shipping Fees :</p>
+          <div className="row mx-3 text-light">
+            <div className="col-7">
+              <p>Subtotal :</p>
+              <p className="pe-2">Shipping Fees :</p>
             </div>
-            <div className="col-6">
+            <div className="col-5">
               <p>
                 <FormatPrice price={total_price} />
               </p>
@@ -62,15 +72,20 @@ export default function Cart() {
             </div>
           </div>
           <hr className="text-light mx-3" />
-          <div className="row ms-2 text-light">
-            <div className="col-6">
+          <div className="row mx-3 text-light">
+            <div className="col-7">
               <p>Order Total :</p>
             </div>
-            <div className="col-6">
+            <div className="col-5">
               <p>
                 <FormatPrice price={total_price + shipping_fee} />
               </p>
             </div>
+          </div>
+          <div className="ms-5 my-2">
+            <button className="btn btn-outline-light fw-bold">
+              Proceed to checkout 
+            </button>
           </div>
         </div>
       </div>
