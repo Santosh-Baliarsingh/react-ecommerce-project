@@ -60,7 +60,7 @@ export default function Cart() {
           <div className="row mx-3 text-light">
             <div className="col-7">
               <p>Subtotal :</p>
-              <p className="pe-2">Shipping Fees :</p>
+              <p >Shipping Fees :</p>
             </div>
             <div className="col-5">
               <p>
@@ -82,7 +82,7 @@ export default function Cart() {
               </p>
             </div>
           </div>
-          <div className="ms-5 my-2">
+          <div className="mx-5 my-2">
             <button className="btn btn-outline-light fw-bold">
               Proceed to checkout 
             </button>
