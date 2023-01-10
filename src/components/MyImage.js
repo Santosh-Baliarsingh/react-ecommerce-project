@@ -6,7 +6,7 @@ export default function MyImage({ images = [{ url: "" }] }) {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4 d-none d-md-block">
             {images.map((currentElement, id) => (
               <div key={id} className="row">
                 <img

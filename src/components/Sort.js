@@ -8,8 +8,8 @@ export default function Sort() {
     useFilterContext();
   return (
     <>
-      <div className="container">
-        <div className="mb-3 d-flex justify-content-between align-item-center mx-2">
+      <div className="container mt-md-0 mt-2">
+        <div className="mb-3 d-flex justify-content-between align-item-center">
           {/* Grid and List Buttons */}
           <div>
             <button
@@ -17,7 +17,7 @@ export default function Sort() {
               className={
                 grid_view
                   ? "btn active btn-outline-dark "
-                  : "btn btn-outline-dark"
+                  : "btn btn-outline-dark "
               }
             >
               <BsFillGridFill />
@@ -34,7 +34,7 @@ export default function Sort() {
             </button>
           </div>
           {/* Products */}
-          <div>
+          <div className=" d-md-block d-none">
             <p className="fw-bold">
               {`${filter_products.length}`} Products available
             </p>
@@ -55,6 +55,11 @@ export default function Sort() {
               <option value="z-a">Name (z - a)</option>
             </select>
           </div>
+        </div>
+        <div className="d-md-none d-block">
+          <p className="fw-bold text-center">
+            {`${filter_products.length}`} Products available
+          </p>
         </div>
       </div>
     </>

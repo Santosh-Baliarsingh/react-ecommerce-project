@@ -18,8 +18,8 @@ export const ProductPage = (ele) => {
         />
 
         <div className="d-flex justify-content-between mt-2">
-          <h5 className="text-dark text-capitalize">{name}</h5>
-          <h5 className="text-dark">{<FormatPrice price={price} />}</h5>
+          <p className="text-dark fw-bold text-capitalize">{name}</p>
+          <p className="text-dark">{<FormatPrice price={price} />}</p>
         </div>
       </NavLink>
     </div>

@@ -6,12 +6,12 @@ import ProductList from "./components/ProductList";
 export default function Products() {
   return (
     <>
-      <div className="container ">
+      <div className="container">
         <div className="row">
-          <div className="col-3">
+          <div className="col-md-4 ">
             <FilterSection />
           </div>
-          <div className="col-9">
+          <div className="col-md-8 ">
             <div className="row">
               <Sort />
             </div>
