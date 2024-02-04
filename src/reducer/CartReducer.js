@@ -1,4 +1,7 @@
 const CartReducer = (state, action) => {
+  // Ensure state.cart is always an array
+  state.cart = state.cart || [];
+
   switch (action.type) {
     // Add Items in Cart
     case "ADD_TO_CART":
