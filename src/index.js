@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap";
 import { AppProvider } from "./context/ProductContext";
 import { FilterContextProvider } from "./context/FilterContext";
 import { CartProvider } from "./context/CartContext";
+import { Analytics } from "@vercel/analytics/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <FilterContextProvider>
       <CartProvider>
         <App />
+        <Analytics />
       </CartProvider>
     </FilterContextProvider>
   </AppProvider>
